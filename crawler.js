@@ -4,7 +4,7 @@ const cliProgress = require('cli-progress');
 const axios = require('axios');
 const config = require('./config.json');
 
-const utils = require('./utils');
+const {Utils} = require('./utils');
 
 const INDEX = {
     YEAR: 5, MONTH: 3, DAY: 1,
@@ -28,7 +28,7 @@ class Crawler {
     createFileTitle(subfix){
         const episodeName = $('.tira-episodio').find('a').first().text();
         const episodeNameSplit = episodeName.split(' ');
-        const fileName = `${episodeNameSplit[INDEX.YEAR]}-${utils.getMonth(episodeNameSplit[INDEX.MONTH])}-${utils.getDay(episodeNameSplit[INDEX.DAY])}${subfix}`;
+        const fileName = `${episodeNameSplit[INDEX.YEAR]}-${Utils.getMonth(episodeNameSplit[INDEX.MONTH])}-${Utils.getDay(episodeNameSplit[INDEX.DAY])}${subfix}`;
         this.fileName = fileName;
         console.log(`========= ${fileName} ========= `);
         
